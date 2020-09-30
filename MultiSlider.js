@@ -50,6 +50,7 @@ export default class MultiSlider extends React.Component {
     minMarkerOverlapStepDistance: 0,
     minColor: '#6CC1BC',
     maxColor: '#F8A482',
+    useGradient: false,
   };
 
   constructor(props) {
@@ -469,18 +470,31 @@ export default class MultiSlider extends React.Component {
               { width: trackOneLength },
             ]}
           />
-          <LinearGradient
-            colors={[this.props.minColor, this.props.maxColor]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            style={[
-              styles.track,
-              this.props.trackStyle,
-              trackTwoStyle,
-              { width: trackTwoLength },
-            ]}
-            {...(twoMarkers ? this._panResponderBetween.panHandlers : {})}
-          />
+          {this.props.useGradient ? (
+            <LinearGradient
+              colors={[this.props.minColor, this.props.maxColor]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={[
+                styles.track,
+                this.props.trackStyle,
+                trackTwoStyle,
+                { width: trackTwoLength },
+              ]}
+              {...(twoMarkers ? this._panResponderBetween.panHandlers : {})}
+            />
+          ) : (
+            <View
+              style={[
+                styles.track,
+                this.props.trackStyle,
+                trackTwoStyle,
+                { width: trackTwoLength },
+              ]}
+              {...(twoMarkers ? this._panResponderBetween.panHandlers : {})}
+            />
+          )}
+
           {twoMarkers && (
             <View
               style={[

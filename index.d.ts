@@ -36,6 +36,7 @@ export interface MultiSliderProps {
 
   minColor?: string;
   maxColor?: string;
+  useGradient?: boolean;
 
   sliderLength?: number;
   touchDimensions?: {
