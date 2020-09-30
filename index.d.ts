@@ -3,81 +3,83 @@
 // Definitions by: Edward Sammut Alessi <https://github.com/Slessi>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.8
-import * as React from "react";
-import { ViewStyle } from "react-native";
-
+import * as React from 'react';
+import { ViewStyle } from 'react-native';
 
 export interface MarkerProps {
-    pressed: boolean;
-    pressedMarkerStyle: ViewStyle;
-    markerStyle: ViewStyle;
-    enabled: boolean;
-    currentValue: number;
-    valuePrefix: string;
-    valueSuffix: string;
+  pressed: boolean;
+  pressedMarkerStyle: ViewStyle;
+  markerStyle: ViewStyle;
+  enabled: boolean;
+  currentValue: number;
+  valuePrefix: string;
+  valueSuffix: string;
 }
 
 export interface LabelProps {
-    oneMarkerValue: string | number;
-    twoMarkerValue: string | number;
-    minValue: number;
-    maxValue: number;
-    oneMarkerLeftPosition: number;
-    twoMarkerLeftPosition: number;
-    oneMarkerPressed: boolean;
-    twoMarkerPressed: boolean;
+  oneMarkerValue: string | number;
+  twoMarkerValue: string | number;
+  minValue: number;
+  maxValue: number;
+  oneMarkerLeftPosition: number;
+  twoMarkerLeftPosition: number;
+  oneMarkerPressed: boolean;
+  twoMarkerPressed: boolean;
 }
 
 export interface MultiSliderProps {
-    values?: number[];
+  values?: number[];
 
-    onValuesChange?: (values: number[]) => void;
-    onValuesChangeStart?: () => void;
-    onValuesChangeFinish?: (values: number[]) => void;
+  onValuesChange?: (values: number[]) => void;
+  onValuesChangeStart?: () => void;
+  onValuesChangeFinish?: (values: number[]) => void;
 
-    sliderLength?: number;
-    touchDimensions?: {
-        height: number;
-        width: number;
-        borderRadius: number;
-        slipDisplacement: number;
-    };
+  minColor?: string;
+  maxColor?: string;
 
-    customMarker?: React.ComponentType<MarkerProps>;
-    customMarkerLeft?: React.ComponentType<MarkerProps>;
-    customMarkerRight?: React.ComponentType<MarkerProps>;
-    customLabel?: React.ComponentType<LabelProps>;
+  sliderLength?: number;
+  touchDimensions?: {
+    height: number;
+    width: number;
+    borderRadius: number;
+    slipDisplacement: number;
+  };
 
-    isMarkersSeparated?: boolean;
+  customMarker?: React.ComponentType<MarkerProps>;
+  customMarkerLeft?: React.ComponentType<MarkerProps>;
+  customMarkerRight?: React.ComponentType<MarkerProps>;
+  customLabel?: React.ComponentType<LabelProps>;
 
-    min?: number;
-    max?: number;
-    step?: number;
+  isMarkersSeparated?: boolean;
 
-    optionsArray?: number[];
+  min?: number;
+  max?: number;
+  step?: number;
 
-    containerStyle?: ViewStyle;
-    trackStyle?: ViewStyle;
-    selectedStyle?: ViewStyle;
-    unselectedStyle?: ViewStyle;
-    markerContainerStyle?: ViewStyle;
-    markerStyle?: ViewStyle;
-    pressedMarkerStyle?: ViewStyle;
-    valuePrefix?: string;
-    valueSuffix?: string;
-    enabledOne?: boolean;
-    enabledTwo?: boolean;
-    onToggleOne?: () => void;
-    onToggleTwo?: () => void;
-    allowOverlap?: boolean;
-    snapped?: boolean;
-    markerOffsetX?: number;
-    markerOffsetY?: number;
-    minMarkerOverlapDistance?: number;
-    minMarkerOverlapStepDistance?: number;
-    imageBackgroundSource?: string;
-    enableLabel?: boolean;
-    vertical?: boolean;
+  optionsArray?: number[];
+
+  containerStyle?: ViewStyle;
+  trackStyle?: ViewStyle;
+  selectedStyle?: ViewStyle;
+  unselectedStyle?: ViewStyle;
+  markerContainerStyle?: ViewStyle;
+  markerStyle?: ViewStyle;
+  pressedMarkerStyle?: ViewStyle;
+  valuePrefix?: string;
+  valueSuffix?: string;
+  enabledOne?: boolean;
+  enabledTwo?: boolean;
+  onToggleOne?: () => void;
+  onToggleTwo?: () => void;
+  allowOverlap?: boolean;
+  snapped?: boolean;
+  markerOffsetX?: number;
+  markerOffsetY?: number;
+  minMarkerOverlapDistance?: number;
+  minMarkerOverlapStepDistance?: number;
+  imageBackgroundSource?: string;
+  enableLabel?: boolean;
+  vertical?: boolean;
 }
 
 export default class MultiSlider extends React.Component<MultiSliderProps> {}

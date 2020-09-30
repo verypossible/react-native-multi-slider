@@ -48,6 +48,8 @@ export default class MultiSlider extends React.Component {
     vertical: false,
     minMarkerOverlapDistance: 0,
     minMarkerOverlapStepDistance: 0,
+    minColor: '#6CC1BC',
+    maxColor: '#F8A482',
   };
 
   constructor(props) {
@@ -468,7 +470,9 @@ export default class MultiSlider extends React.Component {
             ]}
           />
           <LinearGradient
-            colors={['#6CC1BC', '#F8A482']}
+            colors={[this.props.minColor, this.props.maxColor]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
             style={[
               styles.track,
               this.props.trackStyle,
