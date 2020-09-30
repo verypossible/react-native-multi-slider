@@ -13,6 +13,7 @@ import {
 import DefaultMarker from './DefaultMarker';
 import DefaultLabel from './DefaultLabel';
 import { createArray, valueToPosition, positionToValue } from './converters';
+import LinearGradient from 'react-native-linear-gradient';
 
 export default class MultiSlider extends React.Component {
   static defaultProps = {
@@ -47,13 +48,20 @@ export default class MultiSlider extends React.Component {
     vertical: false,
     minMarkerOverlapDistance: 0,
     minMarkerOverlapStepDistance: 0,
+    trackLowColor: '#6CC1BC',
+    trackHighColor: '#F8A482',
   };
 
   constructor(props) {
     super(props);
 
-    if(this.props.minMarkerOverlapDistance > 0 && this.props.minMarkerOverlapStepDistance > 0) {
-      console.error('You should provide either "minMarkerOverlapDistance" or "minMarkerOverlapStepDistance", not both. Expect unreliable results.');
+    if (
+      this.props.minMarkerOverlapDistance > 0 &&
+      this.props.minMarkerOverlapStepDistance > 0
+    ) {
+      console.error(
+        'You should provide either "minMarkerOverlapDistance" or "minMarkerOverlapStepDistance", not both. Expect unreliable results.',
+      );
     }
 
     this.optionsArray =
@@ -461,7 +469,8 @@ export default class MultiSlider extends React.Component {
               { width: trackOneLength },
             ]}
           />
-          <View
+          <LinearGradient
+            colors={[trackLowColor, trackHighColor]}
             style={[
               styles.track,
               this.props.trackStyle,
